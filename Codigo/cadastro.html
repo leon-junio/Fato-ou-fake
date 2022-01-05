@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Ou Fato</title>
+
+    <!-- ===== ícone da aba ===== -->
+    <link rel="shortcut icon" href="./assets/logos/logo-favicon.png" type="image/x-icon">
+
+    <!-- estilos da página -->
+    <link rel="stylesheet" type="text/css" href="./css/cadastro.css">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/0fa763f45b.js" crossorigin="anonymous"></script>
+
+    <!-- Sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- conteúdo principal -->
+        <form id="frmSingUp">
+            <h1>Novo Usuário</h1>
+
+            <!-- div para input de nome de usuário -->
+            <div class="input-area">
+                <input type="text" id="txtNome" name="txtNome" class="form-field" placeholder="Nome" required/>
+                <label for="txtNome" class="form-label">Nome</label>
+            </div>
+
+            <!-- div para input de email de usuário -->
+            <div class="input-area">
+                <input type="email" id="txtEmail" name="txtEmail" class="form-field" placeholder="E-mail" required/>
+                <label for="txtEmail" class="form-label">E-mail</label>
+            </div>
+
+            <!-- div para input de data de nascimento -->
+            <div class="input-area">
+                <input type="date" id="txtDataNascimento" name="txtDataNascimento" class="form-field" placeholder="Data de Nascimento" required/>
+                <label for="txtDataNascimento" class="form-label">Data de Nascimento</label>
+            </div>
+
+            <!-- div para input de senha -->
+            <div class="input-area">
+                <input type="password" id="txtPassword" name="txtPassword" class="form-field" placeholder="Senha" required/>
+                <label for="txtPassword" class="form-label">Senha</label>
+            </div>
+
+            <!-- div para input de confirmar senha -->
+            <div class="input-area">
+                <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" class="form-field" placeholder="Confirmar Senha" required/>
+                <label for="txtConfirmPassword" class="form-label">Confirmar Senha</label>
+            </div>
+        
+            <button type="submit" id="btnRegister">Confirmar</button>
+
+            <p>Já tem uma conta? <a href="./login.html">Entrar <i class="fas fa-arrow-right"></i></a></p>
+        </form>
+    </div>
+
+    <!-- link para o arquivo js padrão -->
+    <script src="./js/main.js"></script>
+    <script src="./js/cadastro.js"></script>
+</body>
+</html>

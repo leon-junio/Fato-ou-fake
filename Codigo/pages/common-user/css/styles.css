@@ -1,0 +1,22 @@
+#grid-noticias tbody {
+    cursor: pointer;
+}
+
+@media (max-width: 580px) {
+    #btnPesquisa {
+        display: none;
+    }
+    #textNot {
+        display: none;
+    }
+}
+
+.tableFixHead {
+    overflow: auto;
+    height: 300px;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    z-index: 1;
+}

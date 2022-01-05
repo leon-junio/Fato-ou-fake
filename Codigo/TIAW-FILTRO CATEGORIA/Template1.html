@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href= "estilo.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="noticias.js"></script>
+    <title>Fato ou Fake?</title>
+  </head>
+  <body>
+      <header class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                  <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li>
+                      <img src="LOGO.svg"  width=80 height=60>
+                  </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="Template1.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="Template2.html">Sobre</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="Template2.html">Contato</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Anuncie</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Fontes confiáveis</a>
+                      </li>
+                    </ul>
+                    <div class="container-fluid">
+                      <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Bsucar">
+                        <button class="btn btn-outline-success" type="submit" id="bt">Buscar</button>
+                      </form>
+                    </div>
+                 </div>
+          </div>
+      </nav>
+        </header>
+        <!---- Principais notícias ----> 
+    <main class="container">
+          <h1>Principais notícias:</h1>
+          <section class="row" id="1">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3 noticias">
+              <div class="noticia-container">
+                <iframe class="noticia1" allowtransparency="true" width="485" height="402"  src="https://ge.globo.com/ginastica-artistica/mundial-de-ginastica-artistica/noticia/rebeca-andrade-pode-ter-conquista-inedita-no-mundial-duas-medalhas.ghtml"  frameborder="0" allowfullscreen></iframe>
+                <a href="https://ge.globo.com/ginastica-artistica/mundial-de-ginastica-artistica/noticia/rebeca-andrade-pode-ter-conquista-inedita-no-mundial-duas-medalhas.ghtml"><p>Exemplo notícia categoria 1</p></a>
+             </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 noticias">
+              <div class="noticia-container">
+                  <iframe class="noticia2" allowtransparency="false" width="485" height="402"  src="https://gshow.globo.com/Famosos/noticia/alec-baldwin-autor-do-disparo-que-matou-diretora-se-pronuncia-coracao-partido.ghtml"  frameborder="0" allowfullscreen></iframe></a>
+                  <a href="https://gshow.globo.com/Famosos/noticia/alec-baldwin-autor-do-disparo-que-matou-diretora-se-pronuncia-coracao-partido.ghtml"><p>Exemplo notícia categoria 2</p></a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 noticias">
+              <div class="noticia-container">
+                <iframe class="noticia3" allowtransparency="true" width="485" height="402"  src="https://g1.globo.com/economia/noticia/2021/10/22/bovespa.ghtml"  frameborder="0" ></iframe>
+                <a href="https://g1.globo.com/economia/noticia/2021/10/22/bovespa.ghtml"><p>Exemplo notícia categoria 3</p></a>             
+              </div>  
+            </div>  
+            <!---- MENU LATERAL ---->      
+          <div class="col-12 col-sm-12 col-md-12 col-lg-1 menu" id="menu">
+            <div class="menuL-container">
+              <nav class="nav flex-column" id="menuLA">
+                <p id="menuL">Categorias</p>
+                <a class="nav-link" href="Template3.html?id=0">Saúde</a>
+                <a class="nav-link" href="Template3.html?id=1">Política</a>
+                <a class="nav-link" href="Template3.html?id=2">Conspirações</a>
+                <a class="nav-link" href="Template3.html?id=3">Verdadeiro</a>
+                <a class="nav-link" href="Template3.html?id=4">Falso</a>
+              </nav>
+           </div>
+          </div>
+         </section>
+         <!----ABA DE NOTÍCIAS POR CATEGORIA------->
+        <section class="row" id="2">    
+          <h1>Política:</h1>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-4 noticias">
+              <div class="noticia-container">
+                <iframe class="noticiaP1" allowtransparency="true" width="485" height="402"  src="https://g1.globo.com/economia/noticia/2021/11/01/mercado-projeta-alta-maior-da-inflacao-e-passa-a-ver-juro-basico-acima-de-10percent-ao-ano-em-2022.ghtml"  frameborder="0" allowfullscreen></iframe>
+                <a href="https://g1.globo.com/economia/noticia/2021/11/01/mercado-projeta-alta-maior-da-inflacao-e-passa-a-ver-juro-basico-acima-de-10percent-ao-ano-em-2022.ghtml" target="blank"><p>Exemplo notícia categoria 1</a>
+              </div>
+          </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 noticias">
+              <div class="noticia-container">
+                  <iframe class="noticiaP2" allowtransparency="false" width="485" height="402"  src="https://g1.globo.com/politica/noticia/2021/11/02/diretores-da-anvisa-relatam-inseguranca-apos-terem-recebido-ameacas.ghtml"  frameborder="0" allowfullscreen></iframe></a>
+                  <a href="https://g1.globo.com/politica/noticia/2021/11/02/diretores-da-anvisa-relatam-inseguranca-apos-terem-recebido-ameacas.ghtml" target="blank"><p>Exemplo notícia categoria 2</p></a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 noticias">
+              <div class="noticia-container">
+                <iframe class="noticiaP3" allowtransparency="true" width="485" height="402"  src="https://g1.globo.com/politica/noticia/2021/11/03/lira-se-reune-com-base-governista-para-tentar-viabilizar-aprovacao-da-pec-dos-precatorios.ghtml"  frameborder="0" ></iframe>
+                <a href="https://g1.globo.com/politica/noticia/2021/11/03/lira-se-reune-com-base-governista-para-tentar-viabilizar-aprovacao-da-pec-dos-precatorios.ghtml" target="blank"><p>Exemplo notícia categoria 3</p></a>             
+              </div>  
+            </div>  
+        </section>
+        <!--ANÚNCIO-->
+        <section class="row" id="3">
+          <div class="anuncio">
+            <p id="anuncio1">Anúncio</p>
+          </div>
+        </section>
+        <!--RODAPÉ-->
+        <footer  class="row" id="4">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-4" id="rodape">
+            <p>Fato ou Fake - Todos os direitos reservados 2021</p>
+          </div>  
+        </footer>    
+    </main>
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

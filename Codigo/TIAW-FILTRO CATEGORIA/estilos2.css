@@ -1,0 +1,48 @@
+/* NAV BAR */
+
+.nav-item
+{
+    padding-top: 10px;
+    padding-left: 50px;
+}
+.container-fluid
+{
+    max-width: 20%;
+}
+.navbar
+{
+    background: rgba(230, 57, 70) !important;
+}
+#bt
+{
+    background-color: rgba(230, 57, 70) !important;
+    color:rgba(29, 53, 87) !important;
+} 
+#bt:hover
+{
+   background-color: rgba(29, 53, 87) !important;
+   color: white !important;
+}
+/*RODAPÉ*/
+footer
+{
+    background-color: rgba(230, 57, 70);
+}
+#rodape
+{
+    padding: 20px;
+}     
+/* SOBRE */
+h1
+{
+    color: rgba(69, 123, 157);
+    padding-top: 35px; 
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+}
+#s, #c
+{
+    padding: 15px;
+    background-color: rgba(168, 218, 220);
+    border-radius: 15px;
+}

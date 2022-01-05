@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead tr {
+    background-color: #DB503B;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table thead tr th {
+    color: #fff;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid #DB503B;
+}

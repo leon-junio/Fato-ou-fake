@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Fato Ou Fake</title>
+
+    <!-- ===== ícone da aba ===== -->
+    <link rel="shortcut icon" href="./assets/logos/logo-favicon.png" type="image/x-icon">
+
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- Créditos e referências -->
+    <!-- 
+        1 - Para as estrutura do site e organização do código, além deste em si, utilizamos várias ideias do canal Bedimcode
+        -- assim utilizamos a ideia de mobile first --
+        
+        - Link para o canal do Bedimcode: https://www.youtube.com/channel/UCgkDs77BoEhMIgRUB4MKrtQ
+        - Link para o GitHub do Bedimcode: https://github.com/bedimcode
+        
+        ----
+
+        2 - Para as ilustrações, utilizamos as disponívieis no site storyset 
+
+        - Link para o site do storyset: https://storyset.com/
+
+        ----
+
+        3 - Para os ícones, utilizamos os disponíveis no site do boxicons
+
+        - Link para o site do boxicons: https://boxicons.com/
+
+        ----
+
+        3 - Gostaríamos deixar registrado, nossos créditos à Pontifíca Universidade Católica de Minas Gerais, 
+            onde, na disciplina de Trabalho Interdisciplinar: Aplicações Web, desenvolvemos esse sistema
+            
+        - Link para o site da PUC Minas: https://www.pucminas.br/destaques/Paginas/default.aspx
+    -->
+
+    <!-- verificar se já existe usuário logado, caso exista, redirecionar para a página correta -->
+    <script>
+        let isLoggedUser = ''; 
+
+        if (isLoggedUser = localStorage.getItem('usuario_logado')) {
+            if (JSON.parse(isLoggedUser).tipo == 'adm') window.location.href = './pages/adm-user';
+            else window.location.href = './pages/common-user';
+        }
+    </script>
+</head>
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav-logo">
+                    <img src="./assets/logos/logo_white.svg" alt="Logo do Site" class="nav-logo-img">
+                </a>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Investigar</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Interagir</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+
+                <span class="nav-separator"></span>
+
+                <ul class="nav-list nav-buttons">
+                    <li class="nav-item"><a href="./login.html" class="nav-button"><button type="button" id="btnLogar">Entrar</button></a></li>
+                    <li class="nav-item"><a href="./cadastro.html" class="nav-button"><button type="button" id="btnCadastrar">Cadastrar</button></a></li>
+                </ul>
+            </div>
+
+            <div class="nav-toggle" id="navToggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--===== MAIN =====-->
+    <main class="l-main">
+        <!-- ---- HOME ---- -->
+        <section class="home" id="home">
+            <div class="home-container bd-grid">
+                <div class="home-title-area">
+                    <h1 class="home-title">FATO OU FAKE</h1>
+                    <p class="home-subtitle">A rede social que desenvolve o senso crítico.</p>
+                    <buttom type="buttom" class="home-button" id="btnEntrar">Entrar</buttom>
+                </div>
+
+                <div class="home-img-area">
+                    <span class="home-img-background"></span>
+                    <img class="home-img" src="./assets/scare_face-removebg-preview.png" alt="Home Imagem"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---- ABOUT ---- -->
+        <section class="about section" id="about">
+            <div class="about-container bd-grid">
+                <div class="about-img">
+                    <img src="./assets/People-search-bro.svg" alt="detetive about">
+                </div>
+                <div>
+                    <h2 class="about-subtitle underline-text">Seja o detetive.</h2>
+                    <p class="about-text">Vire um mestre em achar Fake News. Através do nosso sistema, valide as notícias com base em seu conhecimento e aprimore o seu senso crítico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---- SKILLS ---- -->
+        <section class="skills section" id="skills">
+            <div class="skills-container bd-grid">
+                <div class="skills-img">
+                    <img src="./assets/Conversation-pana.svg" alt="chat skill">
+                </div>
+                
+                <div>
+                    <h2 class="skills-subtitle underline-text">Interaja com outros usuários.</h2>
+                    <span class="skills-span">Duas cabeças pensam mais do que uma.</span>
+                    <p class="skills-text">Debata com outros usuários acerca dos resultados que obteve sobre a notícia. Divulgue dados, links e fontes para comprovar seu ponto de vista. Afinal, todo diálogo é um apredizado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---- CONTATO ---- -->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contato</h2>
+
+            <div class="contact-container bd-grid">
+                <div class="contanct-info">
+                    <h3 class="contact-subtitle">EMAIL</h3>
+                    <span class="contact-text">xxxxxxxxx@sga.pucminans.br</span>
+
+                    <h3 class="contact-subtitle">TELEFONE</h3>
+                    <span class="contact-text">(xx) xxxxx-xxxx</span>
+                </div>
+
+                <form action="" class="contact-form">
+                    <div class="contact-inputs">
+                        <input type="text" placeholder="NOME" class="contact-input">
+                        <input type="email" placeholder="EMAIL" class="contact-input">
+                    </div>
+
+                    <textarea name="" id="" cols="0" rows="10" class="contact-input"></textarea>
+
+                    <input type="submit" value="Enviar" class="contact-button">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer-container bd-grid">
+            <p class="footer-text">&copy; Fato Ou Fake - Todos os direitos reservados.</p>
+            <img class="footer-img" src="./assets/logos/logo-puc-minas.png" alt="logo PUC Minas">
+        </div>
+    </footer>
+
+    <!-- ==== JS ==== -->
+
+    <!-- ---- JQUERY ---- -->
+    <script src="./js/utils/jquery-3.6.0.min.js"></script>
+
+    <!-- ---- SCROLLREVEAL ---- -->
+    <script src="./js/utils/scrollreveal.min.js"></script>
+
+    <!-- JS DA PÁGINA -->
+    <script src="./js/index.js"></script>
+</body>
+</html>

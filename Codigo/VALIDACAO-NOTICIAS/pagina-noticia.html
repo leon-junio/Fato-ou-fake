@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Fato Ou Fake</title>
+
+    <!-- logo do site -->
+    <link rel="shortcut icon" href="./assets/logo-favicon.png" type="image/x-icon">
+
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- importação do css de estilos própios da página -->
+    <link rel="stylesheet" href="./css/main.css">
+
+    <link rel="stylesheet" href="./css/pages/pesquisa.css">
+</head>
+<body id="bodyPd">
+    <!-- ==== HEADER ==== -->
+    <header class="header" id="header">
+        <div class="header-toggle">
+            <i class='bx bx-menu' id="headerToggle"></i>
+        </div>
+
+        <button type="button" id="btnHeaderUser" class="header-user">
+            <a href="#" class="header-link" id="btnLogout"><i class='bx bx-log-out header-icon'></i></a>
+
+            <strong class="header-user-name" id="headerUser"></strong>
+        </button>
+    </header>
+
+    <div class="l-navbar" id="navBar">
+        <nav class="nav">
+            <div>
+                <a href="./index.html" class="nav-logo">
+                    <img src="./assets/logo_white.svg" class="nav-logo-icon" alt="Logo do Site">
+                </a>
+
+                <div class="nav-list">
+                    <a href="#" class="nav-link"><i class='bx bx-user nav-icon'></i></a>
+
+                    <a href="./index.html" class="nav-link active"><i class='bx bx-grid-alt nav-icon' ></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ==== MAIN ==== -->
+    <main class="main">
+        <div class="area-noticia" id="areaNoticia"></div>
+
+        <div class="result-noticia" id="resultNoticia"></div>
+
+        <!-- ==== área botões ==== -->
+        <div class="footer" id="btnFooter">
+            <div class="area-news-validation">
+                <button type="button" class="btn-fato" id="btnFato">Fato</button>
+                <button type="button" class="btn-fake" id="btnFake">Fake</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- importação do jquery -->
+    <script src="./js/utils/jquery-3.6.0.min.js"></script>
+
+    <!-- importação do DOM -->
+    <script src="./js/DOM_db.js"></script>
+
+    <script src="./js/noticia.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Fato Ou Fake</title>
+
+    <!-- logo do site -->
+    <link rel="shortcut icon" href="../../assets/logos/logo-favicon.png" type="image/x-icon">
+
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- importação do css de estilos própios da página -->
+    <link rel="stylesheet" href="../../css/pages/main.css">
+
+    <link rel="stylesheet" href="../../css/pages/common-user/pesquisa.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- verificação para ver se o usuário é logado -->
+    <script>
+        let loggedUser = {};
+        // verificar se existe usuário logado antes de carregar a página
+        if (loggedUser = localStorage.getItem("usuario_logado")) {
+            if (JSON.parse(loggedUser).tipo == 'adm') window.location.href = '../adm-user/index.html';
+        } else {
+            window.location.href = '../../index.html';
+        }
+    </script>
+
+    <style>
+        .table tr th,
+        .table tr td {
+            padding: 1rem .5rem !important;
+        }
+    </style>
+</head>
+
+<body id="bodyPd" onload="init()">
+    <!-- ==== HEADER ==== -->
+    <header class="header" id="header">
+        <div class="header-toggle">
+            <i class='bx bx-menu' id="headerToggle"></i>
+        </div>
+
+        <button type="button" id="btnHeaderUser" class="header-user">
+            <a href="#" class="header-link" id="btnLogout"><i class='bx bx-log-out header-icon'></i></a>
+
+            <strong class="header-user-name" id="headerUser"></strong>
+        </button>
+    </header>
+
+    <div class="l-navbar" id="navBar">
+        <nav class="nav">
+            <div>
+                <a href="./index.html" class="nav-logo">
+                    <img src="../../assets/logos/logo_white.svg" class="nav-logo-icon" alt="Logo do Site">
+                </a>
+
+                <div class="nav-list">
+                    <a href="./editar-perfil.html" class="nav-link"><i class='bx bx-user nav-icon'></i></a>
+
+                    <a href="./index.html" class="nav-link"><i class='bx bx-grid-alt nav-icon' ></i></a>
+
+                    <a href="./pagina-cadastro.html" class="nav-link active"><i class='bx bx-plus nav-icon'></i></a>
+
+                    <a href="./pesquisa-noticia.html" class="nav-link active"><i class='bx bx-search nav-icon'></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ==== MAIN ==== -->
+    <main class="main">
+        <div class="input-pesquisar">
+            <i class='bx bx-search'></i>
+            <input id="pesquisa" type="text" placeholder="Pesquisar">
+            <i class='bx bx-x'></i>
+        </div>
+        <hr>
+        <div class="tableFixHead" style="height: 500px;">
+            <table id="grid-noticias" class="table table-striped" style="display: table-header-group;">
+                <thead style="width: 100%;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuário</th>
+                        <th>Titulo </th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Fonte</th>
+                        <th>Data</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tbl-noticias">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- importação do jquery -->
+    <script src="../../js/utils/jquery-3.6.0.min.js"></script>
+
+    <script src="crud_noticias.js"></script>
+
+    <script>
+        //  Porque ainda não existem notícias
+
+
+        //  definição de constantes
+        const TOAST_ERROR = Swal.mixin({
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
+        });
+
+        const URLS = {
+            home: '../../',
+            commonUser: {
+                index: '../common-user/',
+                pesquisaNoticia: '../common-user/pesquisa-noticia.html'
+            },
+            admUser: {
+                index: '../adm-user/',
+            }
+        };
+
+        // função para logOut
+        function logout(e) {
+            localStorage.removeItem("usuario_logado");
+            window.location = URLS.home;
+        }
+
+        // função para mostrar o menu
+        const showMenu = () => {
+            const nav = $('#navBar'),
+                bodyPd = $('#bodyPd'),
+                headerPd = $('#header');
+
+            if (nav && bodyPd && headerPd) {
+                nav.toggleClass('show-menu');
+
+                $('#headerToggle').toggleClass('bx-x');
+
+                bodyPd.toggleClass('body-pd');
+
+                headerPd.toggleClass('body-pd');
+            }
+        }
+
+
+        const toggle = $('#headerToggle'),
+            link = $('.nav-link'),
+            btnLogout = $('#btnHeaderUser'),
+            userLogado = JSON.parse(localStorage.getItem("usuario_logado"));
+
+        $('#headerUser').text(userLogado.nome);
+
+        toggle.click(showMenu);
+
+        btnLogout.click(function(e) {
+            e.preventDefault();
+
+            logout();
+        });
+
+        if (link) {
+            link.click(function() {
+                link.each(function(i) {
+                    $(this).removeClass('active');
+                });
+
+                $(this).addClass('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

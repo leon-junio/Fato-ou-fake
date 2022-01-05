@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Cadastro de Categorias</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://kit.fontawesome.com/0fa763f45b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+</head>
+
+<body onload="init()">
+    <div class="container">
+
+        <div class="row">
+            <h1>CRUD - Cadastro de Categorias de Noticias</h1>
+        </div>
+        <hr>
+        <form id="form-categorias">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <label for="inputId">Id</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                </div>
+                <div class="col-sm-8">
+                    <label for="inputNome">Nome (*)</label>
+                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o nome da categoria">
+                </div>
+                <div class="col-sm-12">
+                    <label for="inputDescricao">Descrição (*)</label>
+                    <textarea rows="3" cols="120" type="text" class="form-control" id="inputDescricao" required placeholder="Informe a descrição"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <small style="color:red;">(*) Campos obrigatórios</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12 col-sm-12 justify-content-center text-center">
+                    <button type="input" class="btn btn-success" id="btnInsert">Inserir<i class="far fa-save"></i></button>
+                    <button type="input" class="btn btn-warning" id="btnUpdate" value="Alterar">Alterar<i class="far fa-trash-alt"></i></button>
+                    <button type="input" class="btn btn-danger" id="btnDelete" value="Excluir">Excluir<i class="fas fa-pen"></i></button>
+                    <button type="input" class="btn btn-secondary" id="btnClear" value="Limpar Form">Limpar<i class="fas fa-broom"></i></button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <table id="grid-categoria" class="table table-striped" style="display: table-header-group;">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-categorias">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/crud.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 768px){
+    body {
+        padding-right: calc(var(--nav-categorias-width));
+
+        overflow-y: hidden;
+    }
+
+    /* MAIN */
+    main {
+        /* height: calc(100vh - (var(--header-height) + 1rem)); */
+        padding: 1rem 2rem 0 0;
+
+        height: 100vh;
+
+        overflow-y: scroll;
+    }
+
+    main::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    main::-webkit-scrollbar-thumb {
+        background-color: rgba(32, 32, 32, 0.2);;
+        border-radius: 4px;
+    }
+
+    main::-webkit-scrollbar-track {
+        background-color: rgba(32, 32, 32, 0.15);
+    }
+}

@@ -1,0 +1,110 @@
+/* NAV BAR */
+
+.nav-item
+{   
+    padding-top: 10px;
+    padding-left: 50px;
+}
+.container-fluid
+{
+    max-width: 20%;
+}
+.navbar
+{
+    background: rgba(230, 57, 70) !important;
+    color:rgba(29, 53, 87) !important;
+}    
+#bt
+{
+    background-color: rgba(230, 57, 70) !important;
+    color:rgba(29, 53, 87) !important;
+} 
+#bt:hover
+{
+   background-color: rgba(29, 53, 87) !important;
+   color: white !important;
+}
+/* Body */
+/*body
+{
+    background-color: rgba(248, 250, 229, 0.877);
+}
+*/
+.noticia1   
+{
+    padding-top: 15px;
+    padding-left: 0%;
+    max-width: 100%;
+}
+.noticia2
+{
+    padding-top: 15px;
+    padding-left: 5%;
+    max-width: 90%;
+}
+.noticia3
+{
+    padding-top: 15px;
+    max-width: 90%;
+}
+h1
+{
+    color: rgba(69, 123, 157);
+    padding-top: 35px; 
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+}
+p
+{   
+    text-align: center;
+}
+a
+{
+    text-decoration: none;
+}
+/* MENU HORIZONTAL */
+.nav-link
+{
+    color:rgba(69, 123, 157);
+}
+#menuL
+{
+    color:black;
+}
+#menu
+{
+    padding-top: 50px;
+}
+/* Notícias Categorias */
+.noticiaP1, .noticiaP2, .noticiaP3   
+{
+    padding-top: 15px;
+    max-width: 100%;
+}
+/* Breakpoint */
+@media screen and (max-width: 1000px){
+#menu
+{   
+    display: none !important;
+}
+}
+/*ANÚNCIO*/ 
+#anuncio1
+{
+    background-color: black;
+    color: white;
+}
+/*RODAPÉ*/
+footer
+{
+    background-color: rgba(230, 57, 70);
+}
+#rodape
+{
+    padding: 20px;
+}
+/* LINKS */
+a
+{
+    color: black;
+}

@@ -1,0 +1,62 @@
+/* ESTILOS PERSONALIZADOS DA PÁGINA DE PESQUISA */
+
+/* INPUT DE PESQUISA */
+.input-pesquisar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* column-gap: 1rem; */
+
+    padding: 10px;
+    border:  1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+.input-pesquisar input, .input-pesquisar input:focus  {
+    background: none;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+
+    width: 100%;
+
+    font-size: var(--normal-font-size);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 768px){
+    body {
+        padding: 0 0 0 var(--nav-width) !important;
+
+        overflow-y: hidden;
+    } 
+
+    /* MAIN */
+    main {
+        /* height: calc(100vh - (var(--header-height) + 1rem)); */
+        padding: 1rem 2rem 0 2rem;
+
+        height: 100vh;
+
+        overflow-y: scroll;
+    }
+
+    main::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    main::-webkit-scrollbar-thumb {
+        background-color: rgba(32, 32, 32, 0.2);;
+        border-radius: 4px;
+    }
+
+    main::-webkit-scrollbar-track {
+        background-color: rgba(32, 32, 32, 0.15);
+    }
+}
+

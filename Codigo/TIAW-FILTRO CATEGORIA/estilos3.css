@@ -1,0 +1,70 @@
+/* NAV BAR */
+.nav-item
+{   
+    padding-top: 10px;
+    padding-left: 50px;
+}
+.container-fluid
+{
+    max-width: 20%;
+}
+.navbar
+{
+    background: rgba(230, 57, 70) !important;
+    color:rgba(29, 53, 87) !important;
+}    
+#bt
+{
+    background-color: rgba(230, 57, 70) !important;
+    color:rgba(29, 53, 87) !important;
+} 
+#bt:hover
+{
+   background-color: rgba(29, 53, 87) !important;
+   color: white !important;
+}
+/* MAIN */
+h1
+{
+    color: rgba(69, 123, 157);
+    padding-top: 35px; 
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+}
+.noticia1, .noticia2, .noticia3   
+{
+    padding-top: 15px;
+    max-width: 100%;
+}
+p
+{   
+    text-align: center;
+}
+a
+{
+    color: black;
+    text-decoration: none;
+}
+#n1
+{
+    padding: 15px;
+}
+/*ANÚNCIO*/
+#anuncio2
+{
+    background-color: black;
+    color: white;
+}
+/*RODAPÉ*/
+footer
+{
+    background-color: rgba(230, 57, 70);
+}
+#rodape
+{
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+}

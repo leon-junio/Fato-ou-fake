@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Noticias</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://kit.fontawesome.com/0fa763f45b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <title>Fato Ou Fake</title>
+
+    <!-- logo do site -->
+    <link rel="shortcut icon" href="../../assets/logos/logo-favicon.png" type="image/x-icon">
+
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- css comum entre as páginas de usuários -->
+    <link rel="stylesheet" href="../../css/pages/main.css">
+
+
+    <!-- verificação para ver se o usuário é logado -->
+    <script>
+        let loggedUser = {};
+        // verificar se existe usuário logado antes de carregar a página
+        if (loggedUser = localStorage.getItem("usuario_logado")) {
+            if (JSON.parse(loggedUser).tipo == 'adm') window.location.href = '../adm-user/index.html';
+        } else {
+            window.location.href = '../../index.html';
+        }
+    </script>
+
+</head>
+
+<body onload="init()">
+    <!-- ==== HEADER ==== -->
+    <header class="header" id="header">
+        <div class="header-toggle">
+            <i class='bx bx-menu' id="headerToggle"></i>
+        </div>
+
+        <button type="button" id="btnHeaderUser" class="header-user" style="line-height: normal;">
+            <a href="#" class="header-link" id="btnLogout"><i class='bx bx-log-out header-icon'></i></a>
+
+            <strong class="header-user-name" id="headerUser"></strong>
+        </button>
+    </header>
+
+    <div class="l-navbar" id="navBar">
+        <nav class="nav">
+            <div>
+                <a href="./index.html" class="nav-logo">
+                    <img src="../../assets/logos/logo_white.svg" class="nav-logo-icon" alt="Logo do Site">
+                </a>
+
+                <div class="nav-list">
+                    <a href="./editar-perfil.html" class="nav-link"><i class='bx bx-user nav-icon'></i></a>
+
+                    <a href="./index.html" class="nav-link"><i class='bx bx-grid-alt nav-icon' ></i></a>
+
+                    <a href="./pagina-cadastro.html" class="nav-link active"><i class='bx bx-plus nav-icon'></i></a>
+
+                    <a href="./pesquisa-noticia.html" class="nav-link"><i class='bx bx-search nav-icon'></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ==== MAIN ==== -->
+
+    <main class="main">
+
+        <div class="container">
+
+            <div class="row">
+                <h1>CRUD - Cadastro de Notícias</h1>
+            </div>
+            <hr>
+            <form id="form-noticias">
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="inputId">Id</label>
+                        <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="inputUsuario">Usuário</label>
+                        <input type="text" class="form-control" id="inputUsuario" placeholder="Usuário" disabled>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-6">
+                            <label for="inputFake">É fake news ?</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="input" class="form-control" id="inputFake">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <label for="inputTitulo">Titulo (*)</label>
+                        <input type="text" class="form-control" id="inputTitulo" required placeholder="Informe o titulo">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="inputCategoria">Categoria (*)</label>
+                        <select name="inputCategoria" id="inputCategoria">
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="inputDescricao">Descrição (*)</label>
+                        <textarea rows="3" cols="120" type="text" class="form-control" id="inputDescricao" required placeholder="Informe a descrição"></textarea>
+                    </div>
+                    <div class="col-sm-8">
+                        <label for="inputFonte">Fonte da Notícia (*)</label>
+                        <input type="text" class="form-control" id="inputFonte" required placeholder="Informe o link ou o site responsável pela publicação">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="inputData">Data da publicação (*)</label>
+                        <input type="date" class="form-control" id="inputData" required>
+                    </div>
+                    <div class="col-sm-12">
+                        <img id="bannerImg" src="" width="150" height="100" alt="Foto da noticia">
+                        <label id="lblFt" for="inputFoto"></label>
+                        <input type="file" accept=".jpg,.png" class="form-control" id="inputFoto" onchange="previewFile()" placeholder="Selecione uma imagem para upload">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <small style="color:red;">(*) Campos obrigatórios</small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-sm-12 justify-content-center text-center">
+                        <button type="input" class="btn btn-success" id="btnInsert">Inserir<i class="far fa-save"></i></button>
+                        <button type="input" class="btn btn-danger" id="btnDelete" value="Excluir">Excluir<i class="far fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">Limpar<i class="fas fa-broom"></i></button>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <br>
+                    <div class="tableFixHead">
+                        <table id="grid-noticias" class="table table-striped" style="display: table-header-group;">
+                            <thead style="width: 100%;">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Usuário</th>
+                                    <th>Titulo </th>
+                                    <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Fonte</th>
+                                    <th>Data</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl-noticias">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/main_noticias.js"></script>
+    <script src="js/crud_noticias.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <script>
+        //  definição de constantes
+        const TOAST_ERROR = Swal.mixin({
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
+        });
+
+        // const URLS = {
+        //     home: '../../',
+        //     commonUser: {
+        //         index: '../common-user/',
+        //         pesquisaNoticia: '../common-user/pesquisa-noticia.html'
+        //     },
+        //     admUser: {
+        //         index: '../adm-user/',
+        //     }
+        // };
+
+        // função para logOut
+        function logout(e) {
+            localStorage.removeItem("usuario_logado");
+            window.location = URLS.home;
+        }
+
+        // função para mostrar o menu
+        const showMenu = () => {
+            const nav = $('#navBar'),
+                bodyPd = $('#bodyPd'),
+                headerPd = $('#header');
+
+            if (nav && bodyPd && headerPd) {
+                nav.toggleClass('show-menu');
+
+                $('#headerToggle').toggleClass('bx-x');
+
+                bodyPd.toggleClass('body-pd');
+
+                headerPd.toggleClass('body-pd');
+            }
+        }
+
+
+        const toggle = $('#headerToggle'),
+            link = $('.nav-link'),
+            btnLogout = $('#btnHeaderUser'),
+            userLogado = JSON.parse(localStorage.getItem("usuario_logado"));
+
+        $('#headerUser').text(userLogado.nome);
+
+        toggle.click(showMenu);
+
+        btnLogout.click(function(e) {
+            e.preventDefault();
+
+            logout();
+        });
+
+        if (link) {
+            link.click(function() {
+                link.each(function(i) {
+                    $(this).removeClass('active');
+                });
+
+                $(this).addClass('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

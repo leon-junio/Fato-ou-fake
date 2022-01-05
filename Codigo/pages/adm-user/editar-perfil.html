@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/records.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+
+    <title>Fato Ou Fake</title>
+
+    <!-- logo do site -->
+    <link rel="shortcut icon" href="../../assets/logos/logo-favicon.png" type="image/x-icon">
+
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- css comum entre as páginas de usuários -->
+    <link rel="stylesheet" href="../../css/pages/main.css">
+
+    <!-- importação do css de estilos própios da página -->
+    <link rel="stylesheet" href="../../css/pages/common-user/index.css">
+
+    <!-- importação dos estilos para listagem das notícias -->
+    <link rel="stylesheet" href="../../css/pages/common-user/listagemNoticias.css">
+
+    <!-- verificação para ver se o usuário é logado -->
+    <script>
+        let loggedUser = {};
+        // verificar se existe usuário logado antes de carregar a página
+        if (loggedUser = localStorage.getItem("usuario_logado")) {
+            if (JSON.parse(loggedUser).tipo == 'adm') window.location.href = '../adm-user/index.html';
+        } 
+        else {
+            window.location.href = '../../index.html';
+        }
+    </script>
+</head>
+<body id="bodyPd">
+    <!-- ==== HEADER ==== -->
+    <header class="header" id="header">
+        <div class="header-toggle">
+            <i class='bx bx-menu' id="headerToggle"></i>
+        </div>
+
+        <button type="button" id="btnHeaderUser" class="header-user">
+            <a href="#" class="header-link" id="btnLogout"><i class='bx bx-log-out header-icon'></i></a>
+
+            <strong class="header-user-name" id="headerUser"></strong>
+        </button>
+    </header>
+
+    <div class="l-navbar" id="navBar">
+        <nav class="nav">
+            <div>
+                <a href="./index.html" class="nav-logo">
+                    <img src="../../assets/logos/logo_white.svg" class="nav-logo-icon" alt="Logo do Site">
+                </a>
+
+                <div class="nav-list">
+                    <a href="editar-perfil.html" class="nav-link active"><i class='bx bx-user nav-icon'></i></a>
+
+                    <a href="./index.html" class="nav-link"><i class='bx bx-grid-alt nav-icon' ></i></a>
+                    
+                    <a href="./pesquisa-noticia.html" class="nav-link"><i class='bx bx-search nav-icon'></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ==== MAIN ==== -->
+    <div class="area-categorias" id="areaCategorias">
+        <ul class="list-categorias">
+            <li class="li-categoria">
+                <a href="#" class="link-categoria">
+                    <div>
+                        <i class='bx bx-football'></i>
+                        <span class="categoria-name">Eportes</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <main class="main">
+        <h2 class="title-main">Editar Perfil</h2>
+        <table id="tableClient" class="records">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Data de nascimento</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Adicionar Usuario</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form id="form" class="modal-form">
+                    <input type="text" id="nome" data-index="new" class="modal-field" placeholder="Nome do Cliente"
+                        required>
+                    <input type="email" id="email" class="modal-field" placeholder="e-mail do Cliente" required>
+                    <input type="text" id="dataNascimento" class="modal-field" placeholder="Data de nascimento" required>
+                </form>
+                <footer class="modal-footer">
+                    <button id="salvar" class="button green"> Salvar</button>
+                    <button id="cancelar" class="button blue"> Cancelar</button>
+                </footer>
+            </div>
+        </div>
+        <div style="display: flex; justify-content : right;">
+            <button type="button" class="button blue mobile" id="cadastrarCliente"><i
+                    class="fas fa-user-plus"></i></button>
+        </div>
+    </main>
+
+        <div class="area-noticias" id="areaNoticias"></div>
+    </main>
+
+    <!-- importação do jquery -->
+    <script src="../../js/utils/jquery-3.6.0.min.js"></script>
+
+    <!-- scripts do projeto -->
+    <script src="../../js/pages/index.js"></script>
+
+    <script>
+        // função para mostrar a notícia
+        const showNoticias = (areaNoticias) => {
+            const noticias = JSON.parse(localStorage.getItem("db_noticias")), 
+                categorias = JSON.parse(localStorage.getItem("db_categorias"));
+
+            // resetando área das notícias
+            areaNoticias.html('');
+
+            for (const noticia of noticias) {
+                let categoria = categorias.find(item => item.id == noticia.idCategoria);
+
+                let html = `
+                    <div class="card" id="card${noticia.id}" data-id="${noticia.id}">
+                        <div class="card-header">
+                            <img src="${noticia.imagem}" alt="Imagem notícia"/>
+                        </div>
+                        <div class="card-body">
+                            <span class="tag tag-${categoria.tagColor}">${categoria.nome}</span>
+                            <h4>${noticia.titulo}</h4>
+                        </div>
+                    </div>
+                `;
+
+                let el = $(html);
+
+                areaNoticias.append(el);
+            }
+        }
+
+        let areaNoticias = $('#areaNoticias');            
+
+        // mostrar notícias
+        showNoticias(areaNoticias); 
+
+        // evento click nos cards 
+        let cards = $('.card');
+
+        if (cards) {
+            cards.click(function () {
+            let idNoticia = $(this).data('id');
+
+            window.location.href = `./pagina-noticia.html?id=${idNoticia}`; 
+            });
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
